@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rezultat</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #000;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2em;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        .container {
+            margin: 0 auto;
+            padding: 20px;
+            max-width: 90%; /* Responsive for smaller devices */
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent white */
+            border-radius: 10px;
+        }
+
+        img {
+            width: 100%; /* Make the image responsive */
+            max-width: 400px;
+            border-radius: 10px;
+            margin: 20px 0;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .text-frame {
+            text-align: left;
+            font-size: 1em;
+            line-height: 1.5;
+            color: #333;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Increased transparency */
+            border: 1px solid rgba(0, 0, 0, 0.1); /* Light border */
+            border-radius: 8px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .text-frame {
+                font-size: 0.9em;
+            }
+
+            button {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Otkriven spomenik</h1>
+
+        <img src="{{ url_for('static', filename=filename) }}" alt="Processed Image">
+
+        <div class="text-frame">
+            Spomenik koji ste slikali je: <strong>{{ label }}</strong>
+            <br><br>
+
+            {% if label == "Spomenik Karadordu" %}
+            U Podgorici je 1968. godine podignut spomenik Đorđu Petroviću, Karađorđu. Rođen je 16. novembra 1752. godine u selu Viševac, u Srbiji. U vrijeme velikih socijalnih i političkih nemira, Karađorđe je postao vođa ustanka protiv Otomanskog Carstva 1804. godine. Bio je vožd ustanka i pokazao se kao hrabar i vešt vojni strateg.
+
+            Uprkos privremenom uspjehu ustanka, sukobi su se nastavili, a Karađorđe je bio primoran da se povuče iz Srbije 1813. godine. Proveo je izgnanstvo u Habsburškoj Monarhiji prije nego što se vratio u Srbiju 1817. godine, ali je njegov politički uticaj opadao. Izgnan je ponovno 1817. godine, a 1818. godine ubijen je u Beču po nalogu svojih političkih protivnika.
+
+            {% elif label == "Spomenik zrtvama bombardovanja" %}
+            Spomenik je podignut 1994. godine u Podgorici kao sjećanje na bombardovanje glavnog grada. Najveće bombardovanje dogodilo se, 5. maja 1944. godine kada je poginuo najveći broj ljudi i Podgorica najviše nastradala. Postradalo je njeno stanovništvo, ali i njene ulice, trgovi, mostovi... Godine 1994., prilikom gradnje infrastrukture u gradu pronađena je jedna od mnogih neeksplodiranih bombi. Tom prilikom je i podignut spomenik.
+
+            Riječ je o spomeniku koji podsjeća i opominje na to da je Podgorica stradalnički grad u kojem u jednom trenutku praktično nije ostao ni kamen na kamenu, ali koji su, nakon oslobođenja, narod i omladina podigli iz pepela. Ipak, dešavanja poput ovog ostaju ugrađena duboko u identitet svakog grada, tako i stradanja Podgorice, na koju je palo najviše bombi po glavi stanovnika.
+
+            Podgorica je na primjeru bombardovanja 1944. pokazala svojstvo grada-feniksa. To svojstvo zaslužuje divljenje svih njenih građana i obavezuje nas da ga čuvamo.
+
+            {% endif %}
+        </div>
+
+        <div class="button-container">
+            <button onclick="location.href='/'">Vrati se na pocetak!</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,205 @@
+/* Global styles */
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Roboto', sans-serif; /* Modern font from Google Fonts */
+  text-align: center;
+  color: #fff; /* White text color for visibility on dark background */
+}
+
+/* Background styling */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  margin: 0;
+  background-image: url('pozadina.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+
+/* Container (card-like design) */
+.container {
+  border-radius: 10px;
+  padding: 30px 20px;
+  max-width: 400px;
+  background: rgba(0, 0, 0, 0.8); /* Darker translucent background */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6); /* Add subtle shadow */
+  text-align: center;
+}
+
+
+/* Headings */
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #ffd700; /* Gold for emphasis */
+}
+
+/* Paragraph text */
+p {
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* File input and submit button styles */
+input[type="file"], input[type="submit"] {
+  width: 90%;
+  margin: 10px auto;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+input[type="file"] {
+  background-color: #444; /* Subtle dark background */
+  color: #fff; /* White text for visibility */
+  cursor: pointer;
+}
+
+input[type="submit"] {
+  background-color: #28a745; /* Green for the button */
+  color: #fff;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover {
+  background-color: #218838; /* Darker green on hover */
+}
+
+/* Add hover effects for file input */
+input[type="file"]:hover {
+  background-color: #555;
+}
+
+/* Style the image preview */
+img {
+  max-width: 90%; /* Make it responsive */
+  border: 2px solid #ddd; /* Add a border */
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: 20px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.5); /* Subtle shadow */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .container {
+      width: 90%;
+      padding: 20px;
+  }
+
+  h1 {
+      font-size: 1.8em;
+  }
+
+  p {
+      font-size: 1em;
+  }
+}
+
+
+/* Loader styling */
+.loader {
+  transform: rotateZ(45deg);
+  perspective: 1000px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  color: #fff;
+  position: fixed; /* Position it fixed to the viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(45deg); /* Center it */
+  z-index: 9999; /* Ensure the loader is above all content */
+}
+
+.loader:before,
+.loader:after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: inherit;
+  height: inherit;
+  border-radius: 50%;
+  transform: rotateX(70deg);
+  animation: 1s spin linear infinite;
+}
+
+.loader:after {
+  color: #FF3D00;
+  transform: rotateY(70deg);
+  animation-delay: .4s;
+}
+
+@keyframes rotate {
+  0% {
+      transform: translate(-50%, -50%) rotateZ(0deg);
+  }
+  100% {
+      transform: translate(-50%, -50%) rotateZ(360deg);
+  }
+}
+
+@keyframes rotateccw {
+  0% {
+      transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+      transform: translate(-50%, -50%) rotate(-360deg);
+  }
+}
+
+@keyframes spin {
+  0%,
+  100% {
+      box-shadow: .2em 0px 0 0px currentcolor;
+  }
+  12% {
+      box-shadow: .2em .2em 0 0 currentcolor;
+  }
+  25% {
+      box-shadow: 0 .2em 0 0px currentcolor;
+  }
+  37% {
+      box-shadow: -.2em .2em 0 0 currentcolor;
+  }
+  50% {
+      box-shadow: -.2em 0 0 0 currentcolor;
+  }
+  62% {
+      box-shadow: -.2em -.2em 0 0 currentcolor;
+  }
+  75% {
+      box-shadow: 0px -.2em 0 0 currentcolor;
+  }
+  87% {
+      box-shadow: .2em -.2em 0 0 currentcolor;
+  }
+}
+
+/* Overlay to darken the screen */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Dark background with transparency */
+  z-index: 9998; /* Behind the loader */
+  display: none; /* Hidden by default */
+}
+
+/* When the overlay is visible */
+.overlay.active {
+  display: block;
+}

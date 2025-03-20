@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prepoznavanje Spomenika</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="manifest" href="/static/manifest.json">
+</head>
+<body>
+    <div class="container">
+        <h1>MonuMonte</h1>
+        <p>Koji spomenik Vas interesuje?</p>
+        <form id="uploadForm" action="/uploader" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" id="file" accept="image/*">
+            <input type="submit" value="Otkrij!">
+        </form>
+    </div>
+
+    <!-- Loader -->
+    <span class="loader" id="loader" style="display: none;"></span>
+
+    <!-- Dark overlay -->
+    <div class="overlay" id="overlay" style="display: none;"></div>
+
+    <script>
+        // Show loader during processing
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            const fileInput = document.getElementById('file');
+            if (!fileInput.value) {
+                alert('Molimo vas da izaberete fotografiju!');
+                event.preventDefault();
+            } else {
+                // Show loader and overlay
+                document.getElementById('loader').style.display = 'block';
+                document.getElementById('overlay').style.display = 'block';
+            }
+        });
+    </script>
+	
+	
+	 <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(function(registration) {
+            console.log('ServiceWorker registriran s obimom:', registration.scope);
+          })
+          .catch(function(error) {
+            console.error('Registracija ServiceWorkera nije uspjela:', error);
+          });
+      });
+    }
+  </script>
+  
+</body>
+</html>

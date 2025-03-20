@@ -1,0 +1,22 @@
+{
+    "name": "MonuMonte",
+    "short_name": "MonuMonte",
+    "start_url": "/",
+    "display": "fullscreen",
+    "background_color": "#a2d6f9",
+    "theme_color": "#a2d6f9",
+    "description": "Discover historical monuments effortlessly.",
+    "icons": [
+    {
+      "src": "/static/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+    ]
+  }
+  
