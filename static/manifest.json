@@ -2,7 +2,7 @@
     "name": "MonuMonte",
     "short_name": "MonuMonte",
     "start_url": "/",
-    "display": "fullscreen",
+    "display": "standalone",
     "background_color": "#a2d6f9",
     "theme_color": "#a2d6f9",
     "description": "Discover historical monuments effortlessly.",
