@@ -12,12 +12,21 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh; /* Full viewport height */
+  height: 100%;
   margin: 0;
+  padding: 0;
   background-image: url('pozadina.jpg');
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+  background-color: #f0f0f0; /* Ako nemate pozadinsku sliku, koristite ovu boju */
+  overflow: hidden;
+
+  /* Dodajte sigurnosnu marginu za dinamičko ostrvo */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
 }
 
 
@@ -30,7 +39,6 @@ body {
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.6); /* Add subtle shadow */
   text-align: center;
 }
-
 
 /* Headings */
 h1 {
@@ -104,7 +112,6 @@ img {
       font-size: 1em;
   }
 }
-
 
 /* Loader styling */
 .loader {
